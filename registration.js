@@ -8,7 +8,7 @@ class Student {
         return `Student Name: ${this.name}, Email ${this.email}`;
     }
 }
-//object test
+//object test Student class
     testStudent = new Student('Bugs Bunny', 'bugs@bunny.com');
     console.log(testStudent);
     if (testStudent.name === 'Bugs Bunny' && testStudent.email === 'bugs@bunny.com') {
@@ -27,13 +27,13 @@ class Bootcamp {
                 console.log('Invalid name or email');
                 return false
             }else {
-                let i;
+                let i; // if i dont do this im getting i is undefined. maaybe use a for in loop here?
                 for (i = 0; i < this.students.length; i++) {
                     if (this.students[i].email === studentToRegister.email) {
                         console.log(`The email address ${studentToRegister.email} is already registered!`);
                         return false;
                     }
-                }
+                } /// the reaon you don't need an else statmenet here is because there i a return statment which would immediatly exit function if true
                         this.students.push(studentToRegister);
                         console.log(`Registering ${studentToRegister.name} to the React bootcamp.`);
                         return true;
@@ -43,12 +43,12 @@ class Bootcamp {
                     if (this.students.length === 0) {
                         console.log(`No students are registered to ${this.name} bootcamp.`);
                         return false;
-                    } else {
+                    } 
                         console.log(`The students registered in ${this.name} are:`)
-                        for (const student of this.students) {
+                        for (const student of this.students) { //or forEach() array method.
                             console.log(`Name: ${student.name}, ${student.email}`);
+                            return true;
                         }
-                    }
                 }
                 //Bonus Task 1:
                 getInfoBootcamp() {
@@ -61,7 +61,7 @@ class Bootcamp {
                 }
             }
         
-    //object test
+    //object test for Bootcamp class
     reactBootcamp = new Bootcamp("React", "Advanced");
     console.log(reactBootcamp);
     if ( reactBootcamp.name === 'React' && reactBootcamp.level === 'Advanced'
@@ -69,7 +69,7 @@ class Bootcamp {
         console.log('Task 2: Pass');
 
     }
-    //function defenition 
+    //arrow function definition 
     const runTest = (bootcamp, student) => {
         const attemptOne = bootcamp.registerStudent(student);
         const attemptTwo = bootcamp.registerStudent(student);
@@ -97,7 +97,8 @@ class Bootcamp {
     console.log(studentKristine.getInfoStudent());
 
     //bonus Task 2: 
-    reactBootcamp.removeStudent(studentKristine.email);
+    Bootcamp.removeStudent(studentKristine.email);
+
     
 
     runTest(reactBootcamp, testStudent);
