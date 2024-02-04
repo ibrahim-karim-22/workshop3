@@ -82,31 +82,32 @@ class Bootcamp {
         if (bootcamp.listStudents()) {
             console.log("TASK 4: Pass 1/2");
         }
-        bootcamp.students = [];
+        bootcamp.students = []; // makes studnsts to empty array
         if (!bootcamp.listStudents()) {
             console.log("Task 4: PASS 2/2");
         }
     };
 
     //bonus Task 1:
-    const bootcampInfo = new Bootcamp("Full-Stack Bootcamp", "Beginner");
-    console.log(bootcampInfo.getInfoBootcamp());
+    const bootFullStack = new Bootcamp("Full-Stack Bootcamp", "Beginner");
+    console.log(bootFullStack.getInfoBootcamp());
 
     //bonus task 3:
-    const studentKristine = new Student("Kristine Kristine", "kristine@kristine.com");
-    console.log(studentKristine.getInfoStudent());
-    console.log(studentKristine);
+    bootFullStack.registerStudent(new Student("Kristine Kristine", "kristine@kristine.com"));
+   // console.log(bootFullStack.getInfoStudent());
+    console.log(bootFullStack);
     
     //bonus Task 2: 
-    const myBootcamp = new Bootcamp("Web Development", [{name: "Jane Doe", email: "jane@example.com"}, {name: "John Doe", email: "john@example.com"}]);
-    console.log("Before removal:", myBootcamp.students); // Show students before removal
-
-    myBootcamp.removeStudent("jane@example.com"); // Remove "Jane Doe" by email
-    console.log("After removal:", myBootcamp.students); // Show students after removal
-    
-   
-
-
-    
+    reactBootcamp.registerStudent(new Student("emma emma", "emma@emma.com"));
+    reactBootcamp.registerStudent(new Student("Kristy Kristy", "kristy@kristy.com"));
+    // Before removal
+    console.log("Before removal:", reactBootcamp.students);
+    // Removing a student by email
+    reactBootcamp.removeStudent("kristy@kristy.com");
+    // After removal
+    console.log("After removal:", reactBootcamp.students);
 
     runTest(reactBootcamp, testStudent);
+    
+    bootFullStack.listStudents();
+  
