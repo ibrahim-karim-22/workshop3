@@ -15,7 +15,7 @@ class Student {
         console.log('TASK 1: PASS');
     }
 
-class Bootcamp {
+class Bootcamp { 
     constructor(name, level, students = []) {
         this.name = name;
         this.level = level;
@@ -27,39 +27,39 @@ class Bootcamp {
                 console.log('Invalid name or email');
                 return false
             }else {
-                let i; // if i dont do this im getting i is undefined. maaybe use a for in loop here?
+                let i; 
                 for (i = 0; i < this.students.length; i++) {
                     if (this.students[i].email === studentToRegister.email) {
                         console.log(`The email address ${studentToRegister.email} is already registered!`);
                         return false;
                     }
-                } /// the reaon you don't need an else statmenet here is because there i a return statment which would immediatly exit function if true
+                } /// the reaon you don't need an else statmenet here is because there is a return statment which would immediatly exit function if true
                         this.students.push(studentToRegister);
                         console.log(`Registering ${studentToRegister.name} to the React bootcamp.`);
                         return true;
                     }
                 }
-                listStudents() {
-                    if (this.students.length === 0) {
-                        console.log(`No students are registered to ${this.name} bootcamp.`);
-                        return false;
-                    } 
-                        console.log(`The students registered in ${this.name} are:`)
-                        for (const student of this.students) { //or forEach() array method.
-                            console.log(`Name: ${student.name}, ${student.email}`);
-                            return true;
-                        }
+        listStudents() {
+            if (this.students.length === 0) {
+                console.log(`No students are registered to ${this.name} bootcamp.`);
+                return false;
+            } 
+                console.log(`The students registered in ${this.name} are:`)
+                for (const student of this.students) { //or forEach() array method.
+                    console.log(`Name: ${student.name}, ${student.email}`);
+                    return true;
                 }
-                //Bonus Task 1:
-                getInfoBootcamp() {
-                    return `Bootcamp Name: ${this.name}, Level: ${this.level}`;
-                }
+        }
+        //Bonus Task 1:
+        getInfoBootcamp() {
+            return `Bootcamp Name: ${this.name}, Level: ${this.level}`;
+        }
 
-                //Bonus Task 2:
-                removeStudent(email) {
-                    this.students = this.students.filter(student => student.email !== email);
-                }
-            }
+        //Bonus Task 2:
+        removeStudent(email) {
+            this.students = this.students.filter(student => student.email !== email);
+        }
+    }
         
     //object test for Bootcamp class
     reactBootcamp = new Bootcamp("React", "Advanced");
@@ -95,9 +95,10 @@ class Bootcamp {
     //bonus task 3:
     const studentKristine = new Student("Kristine Kristine", "kristine@kristine.com");
     console.log(studentKristine.getInfoStudent());
-
+    console.log(studentKristine);
     //bonus Task 2: 
-    Bootcamp.removeStudent(studentKristine.email);
+   // Bootcamp.removeStudent(studentKristine.email);
+   
 
     
 
