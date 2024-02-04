@@ -36,7 +36,7 @@ class Bootcamp {
                 } /// the reaon you don't need an else statmenet here is because there is a return statment which would immediatly exit function if true
                         this.students.push(studentToRegister);
                         console.log(`Registering ${studentToRegister.name} to the React bootcamp.`);
-                        return true;
+                        return true; //return true otherwise task 4 step 1/2 wont work because nothing is returned.
                     }
                 }
         listStudents() {
@@ -47,8 +47,8 @@ class Bootcamp {
                 console.log(`The students registered in ${this.name} are:`)
                 for (const student of this.students) { //or forEach() array method.
                     console.log(`Name: ${student.name}, ${student.email}`);
-                    return true;
                 }
+                 return true;
         }
         //Bonus Task 1:
         getInfoBootcamp() {
@@ -96,9 +96,16 @@ class Bootcamp {
     const studentKristine = new Student("Kristine Kristine", "kristine@kristine.com");
     console.log(studentKristine.getInfoStudent());
     console.log(studentKristine);
+    
     //bonus Task 2: 
-   // Bootcamp.removeStudent(studentKristine.email);
+    const myBootcamp = new Bootcamp("Web Development", [{name: "Jane Doe", email: "jane@example.com"}, {name: "John Doe", email: "john@example.com"}]);
+    console.log("Before removal:", myBootcamp.students); // Show students before removal
+
+    myBootcamp.removeStudent("jane@example.com"); // Remove "Jane Doe" by email
+    console.log("After removal:", myBootcamp.students); // Show students after removal
+    
    
+
 
     
 
